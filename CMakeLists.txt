@@ -15,9 +15,12 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 find_package(OpenCV REQUIRED)
 
-set(EIGEN_INCLUDE_DIR "/usr/local/include/eigen3")
-find_package(Ceres REQUIRED)
-include_directories(${CERES_INCLUDE_DIRS})
+find_package(Eigen3 REQUIRED)
+include_directories("/usr/include/eigen3")
+# find_package(Ceres REQUIRED)
+# include_directories(${CERES_INCLUDE_DIRS})
+add_subdirectory(ceres)
+include_directories(${PROJECT_SOURCE_DIR}/ceres/include)
 
 catkin_package(
     INCLUDE_DIRS include
@@ -70,13 +73,21 @@ add_library(camera_model STATIC
     src/code_utils/math_utils/Polynomial.cpp
     src/gpl/EigenQuaternionParameterization.cc)
 
+target_compile_definitions(Calibration PRIVATE CERES_USE_CXX11_THREADS=1)
+target_compile_definitions(camera_model PRIVATE CERES_USE_CXX11_THREADS=1)
+    
 target_link_libraries(Calibration
     ${Boost_LIBRARIES}
     ${OpenCV_LIBS}
-    ${CERES_LIBRARIES}
+    ceres
     ${code_utils_LIBRARIES})
 target_link_libraries(camera_model
     ${Boost_LIBRARIES}
     ${OpenCV_LIBS}
-    ${CERES_LIBRARIES}
+    ceres
     ${code_utils_LIBRARIES})
+
+
+add_executable(test src/test.cc)
+
+target_link_libraries(test ${Boost_LIBRARIES} ${OpenCV_LIBS})

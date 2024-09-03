@@ -1,3 +1,3 @@
 
 
-./build/devel/lib/camera_model/Calibration --camera-name mycamera --input workspace/c16_1/ --camera-model scaramuzza 
+./build/devel/lib/camera_model/Calibration --input workspace/c16_1/ --camera-model scaramuzza --opencv true

@@ -33,8 +33,8 @@ main(int argc, char** argv)
     boost::program_options::options_description desc("Allowed options.\n Ask GAO Wenliang if there is any possible questions.\n");
     desc.add_options()
         ("help", "produce help message")
-        ("width,w", value<int>(&boardSize.width)->default_value(9),"Number of inner corners on the chessboard pattern in x direction")
-        ("height,h", value<int>(&boardSize.height)->default_value(12),"Number of inner corners on the chessboard pattern in y direction")
+        ("width,w", value<int>(&boardSize.width)->default_value(8),"Number of inner corners on the chessboard pattern in x direction")
+        ("height,h", value<int>(&boardSize.height)->default_value(11),"Number of inner corners on the chessboard pattern in y direction")
         ("size,s", value<float>(&squareSize)->default_value(50.f),"Size of one square in mm")
         ("input,i",value<std::string>(&inputDir)->default_value("calibrationdata"),"Input directory containing chessboard images")
         ("prefix,p", value<std::string>(&prefix)->default_value(""),"Prefix of images")
@@ -279,7 +279,7 @@ main(int argc, char** argv)
         {
             cv::putText(cbImages.at(i), cbImageFilenames.at(i),
                         cv::Point(10, 20), cv::FONT_HERSHEY_COMPLEX, 0.5,
-                        cv::Scalar(0, 0, 255), 1, CV_AA);
+                        cv::Scalar(0, 0, 255), 1, cv::LINE_AA);
 
             cv::namedWindow("Image", cv::WINDOW_NORMAL);
             cv::imshow("Image", cbImages.at(i));

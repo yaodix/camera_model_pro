@@ -92,6 +92,24 @@ target_link_libraries(camera_model
     ${code_utils_LIBRARIES})
 
 
-add_executable(test src/test.cc)
+add_executable(test src/test.cc
+src/chessboard/Chessboard.cc
+src/calib/CameraCalibration.cc
+src/camera_models/Camera.cc
+src/camera_models/CameraFactory.cc
+src/camera_models/CostFunctionFactory.cc
+src/camera_models/PinholeCamera.cc
+src/camera_models/CataCamera.cc
+src/camera_models/EquidistantCamera.cc
+src/camera_models/ScaramuzzaCamera.cc
+src/camera_models/PolyFisheyeCamera.cpp
+src/camera_models/FovCamera.cpp
+src/sparse_graph/Transform.cc
+src/gpl/gpl.cc
+src/code_utils/math_utils/Polynomial.cpp
+src/gpl/EigenQuaternionParameterization.cc)
 
-target_link_libraries(test ${Boost_LIBRARIES} ${OpenCV_LIBS})
+target_compile_definitions(test PRIVATE CERES_USE_CXX11_THREADS=1)
+
+
+target_link_libraries(test ${Boost_LIBRARIES} ${OpenCV_LIBS} ceres ${code_utils_LIBRARIES})

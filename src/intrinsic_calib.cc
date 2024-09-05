@@ -240,7 +240,7 @@ main(int argc, char** argv)
 
     std::cout << " calibrate done." << std::endl;
 
-    calibration.writeParams(cameraName + "_camera_calib.yaml");
+    calibration.writeParams(cameraName + ".yaml");
     calibration.writeChessboardData(cameraName + "_chessboard_data.dat");
 
     if (verbose)
@@ -253,7 +253,7 @@ main(int argc, char** argv)
     if (verbose)
     {
         std::cerr << "# INFO: Wrote calibration file to "
-                  << cameraName + "_camera_calib.yaml" << std::endl;
+                  << cameraName + ".yaml" << std::endl;
     }
 
     if (viewResults)

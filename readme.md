@@ -8,6 +8,9 @@ repo from https://github.com/gaowenliang/camera_model
 2. add calib shell
 3. replace opencv3 with opencv4.5 and use findChessboardCornersSB to  get better calib results
 
+测试发现Scaramuzza Camera Model对195°鱼眼相机保定结果并不稳定，而CataCamera(MEI/Omnidir) model标定结果很稳定。
+
+
 ## Main version  Source Tree:
 
 * Refine from [CamOdoCal](https://github.com/hengli/camera_model)

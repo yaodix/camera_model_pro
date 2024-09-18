@@ -60,10 +60,10 @@ public:
         double m_k2;
         double m_p1;
         double m_p2;
-        double m_gamma1;
-        double m_gamma2;
-        double m_u0;
-        double m_v0;
+        double m_gamma1;  // fx
+        double m_gamma2;  // fy
+        double m_u0;      // principal point cx
+        double m_v0;      // principal point cy
     };
 
     CataCamera();

@@ -8,7 +8,7 @@ repo from https://github.com/gaowenliang/camera_model
 2. add calib shell
 3. replace opencv3 with opencv4.5 and use findChessboardCornersSB to  get better calib results
 
-测试发现Scaramuzza Camera Model对195°鱼眼相机保定结果并不稳定，而CataCamera(MEI/Omnidir) model标定结果很稳定。
+测试发现Scaramuzza Camera Model对195°鱼眼相机标定结果并不稳定，而CataCamera(MEI/Omnidir) model标定结果很稳定。
 
 
 ## Main version  Source Tree:
@@ -55,8 +55,8 @@ The template is like [fisheye_calibration.sh](https://github.com/gaowenliang/cam
 
 # USE:
 
-Two main files for you to use camera model: [Camera.h](https://github.com/dvorak0/camera_model/blob/master/include/camera_model/camera_models/Camera.h) and [CameraFactory.h](https://github.com/gaowenliang/camera_model/blob/master/include/camera_model/camera_models/CameraFactory.h).
-##1.load in the camera model calibration file
+Two main files for you to use camera model: [Camera.h](https://github.com/dvorak0/camera_model/blob/master/include/camera_model/camera_models/Camera.h) and [CameraFactory.h]_(https://github.com/gaowenliang/camera_model/blob/master/include/camera_model/camera_models/CameraFactory.h).
+## 1.load in the camera model calibration file
 Use function in [CameraFactory.h](https://github.com/gaowenliang/camera_model/blob/master/include/camera_model/camera_models/CameraFactory.h) to load in the camra calibration file:
 
 ```c++
@@ -70,7 +70,7 @@ void loadCameraFile(std::string camera_model_file)
 }
 ```
 
-##2.projection and back-projection point
+## 2.projection and back-projection point
 See [Camera.h](https://github.com/dvorak0/camera_model/blob/master/include/camera_model/camera_models/Camera.h) for general interface:
 
 Projection (3D ---> 2D) function:
